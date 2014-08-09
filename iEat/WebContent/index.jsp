@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
   <meta charset="utf-8">
@@ -16,6 +18,7 @@
   <script src="js/jquery.mobile-1.3.1.min.js"></script>
   <script src="js/codiqa.ext.min.js"></script>
   <script src="js/ieat.js"></script>
+
 </head>
 <body>
   <div data-role="page" data-control-title="Home" id="page1">
@@ -25,7 +28,7 @@
                   Menu
               </li>
               <li data-theme="a">
-                  <a href="page3.html" data-transition="slide">
+                  <a href="Today_Recipe.html" data-transition="slide">
                       Today's Recipe
                   </a>
               </li>
@@ -35,7 +38,7 @@
                   </a>
               </li>
               <li data-theme="a">
-                  <a href="page4.html" data-transition="slide">
+                  <a href="ISpy.html" data-transition="slide">
                       Food Finder
                   </a>
               </li>
@@ -55,7 +58,7 @@
                   Menu
               </li>
               <li data-theme="a">
-                  <a href="page3.html" data-transition="slide">
+                  <a href="Today_Recipe.html" data-transition="slide">
                       Today's Recipe
                   </a>
               </li>
@@ -85,7 +88,7 @@
                   Menu
               </li>
               <li data-theme="a">
-                  <a href="page3.html" data-transition="slide">
+                  <a href="Today_Recipe.html" data-transition="slide">
                       Today's Recipe
                   </a>
               </li>
@@ -147,14 +150,15 @@
           </a>
       </div>
       <div data-role="content">
-          <a data-role="button" data-inline="true" href="index.html" class="ui-btn-right">
+          <a data-role="button" data-inline="true" method="get" action=<%= response.encodeURL(request.getContextPath()+"/Home?action=login")  %> class="ui-btn-right">
               Sign in
           </a>
-          <a data-role="button" data-inline="true" href="index.html">
+          <a data-role="button" data-inline="true" href="index.jsp">
               Sign up
           </a>
+			<input type="image" id="myimage" style="height:200px;width:200px;" src="img/facebook-connect-logo.png" />
           <div data-role="fieldcontain" data-controltype="searchinput">
-              <input name="" id="searchinput1" placeholder="Type a food " value="" type="search" data-mini="true"/>
+              <input name="" id="searchinput1" placeholder="Type a food" value="" type="search"/>
           </div>
           <div style="" data-controltype="image">
               <img style="width: 280px; height: 150px" src="img/app_logo.png"/>
@@ -162,7 +166,7 @@
           <h5>
               Today's Recipe
           </h5>
-          <a href="page3.html" data-controltype="image">
+          <a href="Today_Recipe.html" data-controltype="image">
               <div style="display: inline">
                   <img style="width: 150px; height: 150px" src="img/fruit_salad.jpg"/>
               </div>
