@@ -150,7 +150,7 @@
           </a>
       </div>
       <div data-role="content">
-          <a data-role="button" data-inline="true" method="get" action=<%= response.encodeURL(request.getContextPath()+"/Home?action=login")  %> class="ui-btn-right">
+          <a data-role="button" data-inline="true" method="get" href=<%= response.encodeURL(request.getContextPath()+"/Home?action=login")  %> class="ui-btn-right">
               Sign in
           </a>
           <a data-role="button" data-inline="true" href="index.jsp">

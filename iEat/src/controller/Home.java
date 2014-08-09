@@ -64,6 +64,7 @@ public class Home extends HttpServlet {
 
 		PrintWriter out = response.getWriter();
 		String action = request.getParameter("action");
+		System.out.println("action "+action);
 
 		if (action == null) {
 			request.getRequestDispatcher("/index.jsp").forward(request,
@@ -72,6 +73,7 @@ public class Home extends HttpServlet {
 			request.setAttribute("email", "");
 			request.setAttribute("password", "");
 			request.setAttribute("message", "");
+			System.out.println("tried to send the login jsp");
 			request.getRequestDispatcher("/login.jsp").forward(request,
 					response);
 		} else if (action.equals("createaccount")) {
