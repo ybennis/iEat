@@ -24,6 +24,13 @@
     <servlet-name>Home</servlet-name>
     <servlet-class>controller/Home</servlet-class>
   </servlet>
+  
+  <servlet>
+    <description></description>
+    <display-name>ISpy</display-name>
+    <servlet-name>ISpy</servlet-name>
+    <servlet-class>controller/RecipeFinder</servlet-class>
+  </servlet>
     
   
 </web-app>

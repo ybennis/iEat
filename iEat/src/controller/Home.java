@@ -15,9 +15,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import beans.Account;
+import beans.ConnectionUtilities;
 import beans.User;
 
 
@@ -83,7 +85,11 @@ public class Home extends HttpServlet {
 			request.setAttribute("message", "");
 			request.getRequestDispatcher("/createaccount.jsp").forward(request,
 					response);
-		} else {
+		} else if (action.equals("find")) {
+			request.getRequestDispatcher("/ISpy.jsp").forward(request,
+					response);
+		}
+		else {
 			out.println("unrecognised action");
 			return;
 		}
@@ -117,7 +123,8 @@ System.out.println("action request is "+action);
 			throw new ServletException();
 		}
 
-		Account account = new Account(conn);
+		Account account = new Account(ConnectionUtilities.getInstance());
+		HttpSession session = request.getSession();
 
 		if (action.equals("doLogin")) {
 			String email = request.getParameter("email");
@@ -133,6 +140,7 @@ System.out.println("action request is "+action);
 				if (account.login(email, password)) {
 					request.getRequestDispatcher("/loginsuccess.jsp").forward(
 							request, response);
+					session.setAttribute("user", user);
 				} else {
 					request.setAttribute("message",
 							"email address or password not recognised");
